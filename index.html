@@ -14,11 +14,21 @@
   margin: 0;
   padding: 50px;
   	}
+h1 {
+  color: black;
+  line-height: .5;
+  margin: 8px 0;
+  font-size: 36px;   /* desktop size */
+}
 
-    h1 {
-      color: black;
-      line-height: .5;     /* tighter spacing between lines */
-    }
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 22px;   /* smaller text for phones */
+    line-height: 1.2;  /* tighter spacing */
+    margin: 5px 0;     /* less vertical gap */
+  }
+}
     .photo-space {
       width: 300px;
       height: 300px;
@@ -106,3 +116,4 @@
 </body>
 
 </html>
+
