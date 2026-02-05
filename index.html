@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I Love You ❤️</title>
+  <style>
+    body {
+  background-image: url('https://i.imgur.com/s6YZmnu.jpeg');
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 50px;
+  	}
+
+    h1 {
+      color: black;
+      line-height: .5;     /* tighter spacing between lines */
+    }
+    .photo-space {
+      width: 300px;
+      height: 300px;
+      border: 2px dashed #d6336c;
+      margin: 20px auto;
+      background-color: #fff0f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+    }
+    .buttons {
+      margin-top: 30px;
+      position: relative;   /* allows absolute positioning inside */
+      width: 300px;
+      height: 120px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    button {
+      font-size: 18px;
+      padding: 15px 40px;
+      border: none;
+      cursor: pointer;
+      color: white;
+      transition: all 0.3s ease;
+      border-radius: 50px;  /* oval shape */
+      position: absolute;   /* stack buttons */
+      top: 0;
+    }
+    #yesBtn {
+      background-color: pink;
+      left: 0;              /* start on the left */
+      z-index: 2;           /* stays on top */
+    }
+    #noBtn {
+      background-color: black;
+      left: 160px;          /* fixed to the right */
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>❤️ Miss Shivika Shivanjali ❤️</h1>
+  <h1>💘 Will you be my Valentine ? 💘</h1>
+  
+  <div class="photo-space">
+  <img src="https://i.imgur.com/TmxXwQl.jpeg" alt="Us together" style="max-width:100%; max-height:100%; border-radius:10px;">
+  </div>
+  
+  <div class="buttons">
+    <button id="yesBtn">Yes❤️</button>
+    <button id="noBtn">No💔</button>
+  </div>
+  
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    
+    let noClickCount = 0;
+    const noTexts = ["No?💔", "Still no💔", "Are you sure no?💔", "Please cutie!💔", "Really no?💔"];
+    
+    noBtn.addEventListener('click', () => {
+      noClickCount++;
+      
+      // Change the text of the No button
+      if (noClickCount < noTexts.length) {
+        noBtn.textContent = noTexts[noClickCount];
+      } else {
+        noBtn.textContent = "😢";
+      }
+      
+      // Make Yes button grow faster and overlap No
+      let currentWidth = yesBtn.offsetWidth;
+      let currentHeight = yesBtn.offsetHeight;
+      yesBtn.style.width = (currentWidth + 25) + "px";
+      yesBtn.style.height = (currentHeight + 35) + "px";
+      yesBtn.style.fontSize = (parseInt(window.getComputedStyle(yesBtn).fontSize) + 12) + "px";
+    });
+    
+    yesBtn.addEventListener('click', () => {
+      alert("I LOVE YOU 💖 I knew you'd say YES!");
+    });
+  </script>
+</body>
+</html>
